@@ -3,11 +3,12 @@ const path = require("path");
 const session = require("express-session");
 const passport = require("passport");
 const bcrypt = require("bcryptjs");
+require('dotenv').config();
 const LocalStrategy = require("passport-local").Strategy;
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const mongoDb = "mongodb+srv://m001-student:1qa2ws3ed@sandbox.hfwii.mongodb.net/**auth-project**?retryWrites=true&w=majority";
+const mongoDb = process.env.MONGO_URI;
 mongoose.connect(mongoDb, {
   useUnifiedTopology: true,
   useNewUrlParser: true
